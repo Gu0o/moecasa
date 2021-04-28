@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>萌屋</title>
+    <meta name="description" content="这里是萌屋。">
+    <meta name="keywords" content="萌屋">
+    <link rel="icon" type="image/ico" href="/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+</head>
+
+<body>
+    <div id="main" class="container">
+        <div class="row my-card justify-content-center">
+            <div class="col-lg-4 photo-bg"></div>
+            <div class="col-lg-8 card">
+                <h1>Hi，这里是萌屋！</h1>
+                <h2>(ノ▽｀*)ノ[你来啦♪]=з=з=з</h2>
+                <p> 因为casa在西班牙语和意大利语中是“房屋”的意思</p>
+                <p> 所以本站就叫萌屋啦♪(o∀o)っ</p>
+                <p id="hitokoto_text">:D 获取中...</p>
+                <p>你可以通过以下的方式来联系我:</p>
+                <div class="row">
+                    <a href="https://xn--bsr.cn/" target="_blank" class="btn btn-secondary col-lg-4">Blog</a>
+                    <a href="https://t.me/Na_cn" target="_blank" class="btn btn-primary col-lg-4">Telegram</a>
+                    <a href="mailto:didguozi@gmail.com" class="btn btn-success col-lg-4">Send a Mail</a>
+                </div>
+                <h4 class="mt-4">左图pixiv id=75654226</h4>
+                <footer>
+                    <p>Copyright 2021 <a href="https://eas1.cn" target="_blank">萌屋</a> <a href="https://icp.gov.moe" target="_blank">萌ICP备</a><a href="https://icp.gov.moe/?keyword=20218233" target="_blank">20218233号</a>
+                        <br>Mod by
+                        <a href="https://github.com/kaygb/kaygb/tree/master/v3" target="_blank" rel="">kaygb</a>
+                    </p>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', 'https://v1.hitokoto.cn/?c=b');
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            var data = JSON.parse(xhr.responseText);
+            var hitokoto = document.getElementById('hitokoto_text');
+            hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+            hitokoto.innerText = data.hitokoto;
+        }
+     }
+    xhr.send();
+    </script>
+</html>
